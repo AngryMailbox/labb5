@@ -44,7 +44,9 @@ public class FlowGraph {
       }
       checkArgument(!adj.contains(v), "cannot create duplicate edge (%s, %s)", u, v);
       adj.add(v);
-      capacity[u][v] = edge.maxCapacity;
+
+      //-1
+      capacity[u][v] = (edge.maxCapacity == -1) ? Integer.MAX_VALUE : edge.maxCapacity;
     }
   }
 

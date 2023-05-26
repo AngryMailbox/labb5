@@ -32,7 +32,7 @@ public class Lab5 {
       while (!queue.isEmpty()) {
         int u = queue.poll();
         for (int v = 0; v < g.vertexCount(); v++) {
-          if (parent[v] == -1 && g.getCapacity(u, v) > flow[u][v]) {
+          if (parent[v] == -1 && g.getCapacity(u, v) - flow[u][v] > 0) {
             parent[v] = u;
             queue.add(v);
           }
@@ -41,10 +41,10 @@ public class Lab5 {
       if (parent[sink] == -1) {
         break;
       }
-      int pathFlow = Integer.MAX_VALUE;
+      int pathFlow = (g.getCapacity(parent[sink], sink) - flow[parent[sink]][sink]);
       for (int v = sink; v != source; v = parent[v]) {
-        int u = parent[v];
-        pathFlow = Math.min(pathFlow, g.getCapacity(u, v) - flow[u][v]);
+          int u = parent[v];
+          pathFlow = Math.min(pathFlow, g.getCapacity(u, v) - flow[u][v]);
       }
       for (int v = sink; v != source; v = parent[v]) {
         int u = parent[v];
