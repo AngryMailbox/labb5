@@ -1,0 +1,7 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.format.settings.url": "eclipse-formatter.xml",
+    "java.format.settings.profile": "eclipse-formatter.xml",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "mwpb.java-prettier-formatter"
+}
