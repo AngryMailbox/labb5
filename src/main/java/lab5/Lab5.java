@@ -32,7 +32,7 @@ public class Lab5 {
       while (!queue.isEmpty()) {
         int u = queue.poll();
         for (int v = 0; v < g.vertexCount(); v++) {
-          if (parent[v] == -1 && g.getCapacity(u, v) - flow[u][v] > 0) {
+          if (parent[v] == -1 && g.getCapacity(u, v) > flow[u][v]) {
             parent[v] = u;
             queue.add(v);
           }
